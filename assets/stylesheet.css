@@ -55,7 +55,9 @@ form {
 
 hr.solid {
     border-top: 1px solid black;
-    width: 284.8px;
+    /* width: 284.8px; */
+    width: fit-content;
+    display: inline-block;
     
 }
 
@@ -102,6 +104,14 @@ hr.solid {
 #searched-city-info {
     color: black ;
     font-size: medium;
+}
+
+@media (max-width: 400px){
+    .date {
+        background-color: rgb(35, 52, 186);
+    }
+   
+    
 }
 
 /* figure out how to get the header in the searched-city-info box to be styled in isolation  */
