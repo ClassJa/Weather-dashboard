@@ -1,12 +1,24 @@
 const apiKey = '18e7ae3a1f608e812d465476189f028c'
+const latitude = '47.6062'
+const longitude = '-122.3321'
+const searchedCity = document.getElementById('city-search')
 
-const baseUrl = `https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid=${apiKey}`
+console.log(searchedCity)
 
+// create localstorage set up for recent searches so they populate in the aside section of the webpage 
+localStorage.getItem('searched-city')
+localStorage.setItem('searched-city', searchedCity.value)
+
+console.log(localStorage.setItem('searched-city', searchedCity.value))
+
+const baseUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}`
+
+// [47.6062, -122.3321]
 
 // if (baseUrl.ok) {
     fetch(baseUrl)
-    .then(resonse)
-    console.log(response)
+    .then((response) => response)
+    .then((response) => {console.log(response)})
     .catch(`Url is not working, response: ${baseUrl.status}`)
 // }
 
