@@ -54,6 +54,7 @@ form {
     color: rgb(9, 9, 9);
     font-size: medium;
     font-weight: bold;
+    margin-bottom: 5px;
     /* figure out how to get the width automatically sized without hard coding it */
    
 

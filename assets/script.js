@@ -46,11 +46,6 @@ function NewSearchedCity(e) {
     
     // don't create a new div, target the precendent 
     underForm.appendChild(newRecentSearchBtn)
-    // const formSection = document.createElement('div')
-    // formSection.setAttribute('class', 'form-section')
-    // formSection.appendChild(newRecentSearchBtn)
-    // underForm.appendChild(formSection)
-    
     }
     
 submitBtn[0].addEventListener("click", NewSearchedCity);
