@@ -38,17 +38,33 @@ const baseUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude
 
 // Renders to the aside section recently searched cities by creating a button element for each
 function NewSearchedCity(e) {
-    e.preventDefault();
-
+    // e.preventDefault();
+    // clearTextInput()
+    // newRecentSearchBtn.textContent = ''
+    // create a for-loop that starts off by clearing the form field input 
+    // seek guidance 
+    // searchedCity.textContent = " "
     const newRecentSearchBtn = document.createElement('button')
     newRecentSearchBtn.textContent = searchedCity.value
     newRecentSearchBtn.setAttribute('class', 'recent-search1')
     
     // don't create a new div, target the precendent 
     underForm.appendChild(newRecentSearchBtn)
+    
     }
     
-submitBtn[0].addEventListener("click", NewSearchedCity);
+// submitBtn[0].addEventListener("click", NewSearchedCity);
+// newRecentSearchBtn.innerHTML = ''
+
+function clearTextInput() {
+    searchedCity.textContent = " "
+}
+
+submitBtn[0].addEventListener("click", () => {
+    clearTextInput()
+    NewSearchedCity()
+});
+
 
 
 

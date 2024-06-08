@@ -97,7 +97,7 @@ hr.solid {
     top: 58%;
     left: 25%;
     width: 75%;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .date {
