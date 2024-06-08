@@ -37,7 +37,11 @@ const baseUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude
 
 
 // Renders to the aside section recently searched cities by creating a button element for each
-function NewSearchedCity(e) {
+
+// figure out how to have all of teh cities entered saved to an array so it can be stored in localStorage and rendered to screen in recently viewed section 
+// const cityInputs = JSON.parse('inputCity')
+const userInput = [] || cityInputs
+function NewSearchedCity() {
     // e.preventDefault();
     // clearTextInput()
     // newRecentSearchBtn.textContent = ''
@@ -50,6 +54,9 @@ function NewSearchedCity(e) {
     
     // don't create a new div, target the precendent 
     underForm.appendChild(newRecentSearchBtn)
+
+    userInput.push(searchedCity.value)
+    console.log(userInput)
     
     }
     
@@ -57,17 +64,29 @@ function NewSearchedCity(e) {
 // newRecentSearchBtn.innerHTML = ''
 
 function clearTextInput() {
-    searchedCity.textContent = " "
+    // searchedCity.value = " "
 }
 
-submitBtn[0].addEventListener("click", () => {
+submitBtn[0].addEventListener("click", (event) => {
+    event.preventDefault()
     clearTextInput()
     NewSearchedCity()
+    storeCityInput()
 });
 
+function storeCityInput() {
+    for (input of userInput) {
 
-
-
+    }
+    // for (input of searchedCity){
+        // localStorage.setItem('inputCity', JSON.stringify(searchedCity[i].value))
+        // console.log(JSON.stringify(searchedCity[i].value))
+        // console.log(typeof(searchedCity))
+    // }
+    localStorage.setItem('inputCity', JSON.stringify(searchedCity.value))
+    console.log(JSON.stringify(searchedCity.value))
+    console.log(typeof(searchedCity))
+}
 
 
 // function NewSearchedCity(e) {
