@@ -1,9 +1,10 @@
 const apiKey = '18e7ae3a1f608e812d465476189f028c'
 const latitude = '47.6062'
 const longitude = '-122.3321'
-const searchedCity = document.body.getAttribute('#city-search')
+const searchedCity = document.getElementById('city-search')
 const submitBtn = document.body.getElementsByClassName('form-sub-btn')
-const formSection = document.body.getElementsByClassName('form-section')
+// const formSection = document.body.getElementsByClassName('form-section')
+const underForm = document.querySelector('.form-section')
 
 // console.log(searchedCity)
 
@@ -38,8 +39,47 @@ const baseUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude
 
 // function will create a new div for a recently searched city 
 
-function NewSearchedCity(searchedCity, event) {
-    // event.preventDefault();
+// searchedCity.textContent = searchedCity.value
+
+
+
+
+function NewSearchedCity(e) {
+    e.preventDefault();
+    // const fS = document.
+    const newRecentSearchBtn = document.createElement('button')
+    // const newRecentSearch = document.createElement("div")
+    
+    newRecentSearchBtn.textContent = searchedCity.value
+    console.log(searchedCity.value)
+    // newRecentSearch.createElement('<h2>')
+    // newRecentSearch.textContent = searchedCity.value;
+    newRecentSearchBtn.setAttribute('class', 'recent-search1')
+    
+    const formSection = document.createElement('div')
+    formSection.setAttribute('class', 'form-section')
+    formSection.appendChild(newRecentSearchBtn)
+    // document.body.section[0].appendChild(formSection)
+    underForm.appendChild(formSection)
+
+    // figure this out 
+    
+    // const container = document.getElementsByClassName("form-section");
+    // container.appendChild(newRecentSearch);
+    
+    console.log(newRecentSearchBtn.value)
+    console.log(newRecentSearchBtn.textContent)
+    // console.log("Check here");
+    }
+    
+    submitBtn[0].addEventListener("click", NewSearchedCity);
+
+
+
+
+
+// function NewSearchedCity(e) {
+//     e.preventDefault;
     // const newRecentSearch = document.createElement("div")
 
     // newRecentSearch.innerHTML = searchedCity.value
@@ -54,7 +94,6 @@ function NewSearchedCity(searchedCity, event) {
     
     // console.log(newRecentSearch.value)
     // console.log(newRecentSearch.textContent)
-    console.log("Check here")
-}
-
-submitBtn[0].addEventListener("click", NewSearchedCity);
+//     console.log("Check here")
+// }
+//     submitBtn[0].addEventListener("click", NewSearchedCity);

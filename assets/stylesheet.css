@@ -120,8 +120,17 @@ hr.solid {
     padding: 7px;
 }
 
+.form-section {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    align-content: space-evenly;
+    position: absolute;
+    top: 175px;
+    width: 100%;
+}
 
-#searched-city-info {
+.searched-city-info {
     color: black ;
     font-size: medium;
 }
