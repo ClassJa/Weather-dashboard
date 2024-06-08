@@ -36,43 +36,24 @@ const baseUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude
 // 3. Improve error handling.
 
 
-
-// function will create a new div for a recently searched city 
-
-// searchedCity.textContent = searchedCity.value
-
-
-
-
+// Renders to the aside section recently searched cities by creating a button element for each
 function NewSearchedCity(e) {
     e.preventDefault();
-    // const fS = document.
+
     const newRecentSearchBtn = document.createElement('button')
-    // const newRecentSearch = document.createElement("div")
-    
     newRecentSearchBtn.textContent = searchedCity.value
-    console.log(searchedCity.value)
-    // newRecentSearch.createElement('<h2>')
-    // newRecentSearch.textContent = searchedCity.value;
     newRecentSearchBtn.setAttribute('class', 'recent-search1')
     
-    const formSection = document.createElement('div')
-    formSection.setAttribute('class', 'form-section')
-    formSection.appendChild(newRecentSearchBtn)
-    // document.body.section[0].appendChild(formSection)
-    underForm.appendChild(formSection)
-
-    // figure this out 
+    // don't create a new div, target the precendent 
+    underForm.appendChild(newRecentSearchBtn)
+    // const formSection = document.createElement('div')
+    // formSection.setAttribute('class', 'form-section')
+    // formSection.appendChild(newRecentSearchBtn)
+    // underForm.appendChild(formSection)
     
-    // const container = document.getElementsByClassName("form-section");
-    // container.appendChild(newRecentSearch);
-    
-    console.log(newRecentSearchBtn.value)
-    console.log(newRecentSearchBtn.textContent)
-    // console.log("Check here");
     }
     
-    submitBtn[0].addEventListener("click", NewSearchedCity);
+submitBtn[0].addEventListener("click", NewSearchedCity);
 
 
 
