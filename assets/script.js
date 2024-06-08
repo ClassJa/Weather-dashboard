@@ -3,6 +3,7 @@ const latitude = '47.6062'
 const longitude = '-122.3321'
 const searchedCity = document.body.getAttribute('#city-search')
 const submitBtn = document.body.getElementsByClassName('form-sub-btn')
+const formSection = document.body.getElementsByClassName('form-section')
 
 // console.log(searchedCity)
 
@@ -38,17 +39,22 @@ const baseUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude
 // function will create a new div for a recently searched city 
 
 function NewSearchedCity(searchedCity, event) {
-    event.preventDefault
-    const newRecentSearch = document.createElement("div")
+    // event.preventDefault();
+    // const newRecentSearch = document.createElement("div")
 
-    newRecentSearch.innerHTML = searchedCity.value
+    // newRecentSearch.innerHTML = searchedCity.value
     // newRecentSearch.createElement('<h2>')
-    // newRecentSearch.textContent = searchedCity.value
+    // newRecentSearch.textContent = searchedCity.value;
     
-    document.appendChild(newRecentSearch)
+    // newRecentSearch.appendChild(newRecentSearch)
+
+
+    // const container = document.getElementsByClassName("form-section");
+    // container.appendChild(newRecentSearch);
     
-    console.log(newRecentSearch.value)
-    console.log(newRecentSearch.textContent)
+    // console.log(newRecentSearch.value)
+    // console.log(newRecentSearch.textContent)
+    console.log("Check here")
 }
 
 submitBtn[0].addEventListener("click", NewSearchedCity);
