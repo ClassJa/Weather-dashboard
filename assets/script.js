@@ -2,6 +2,7 @@ const apiKey = '18e7ae3a1f608e812d465476189f028c'
 const latitude = '47.6062'
 const longitude = '-122.3321'
 const searchedCity = document.body.getAttribute('#city-search')
+const submitBtn = document.body.getElementsByClassName('form-sub-btn')
 
 // console.log(searchedCity)
 
@@ -45,3 +46,5 @@ function NewSearchedCity(searchedCity) {
     
     console.log(newRecentSearch)
 }
+
+submitBtn.addEventListener("click", NewSearchedCity)
