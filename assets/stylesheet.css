@@ -1,4 +1,7 @@
-
+body {
+    width: auto;
+    height: 500px;
+}
 
 header {
     background-color: rgb(60, 60, 156);
@@ -17,7 +20,73 @@ aside {
     position: relative;
     top: 80px;
     flex-direction: column;
-    width: 245px;
+    width: 20%;
     /* justify-content: space-evenly; */
 
+}
+
+form {
+    height: 61px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.recent-search1 {
+    position: absolute;
+    top: 145px;
+    height: 30px;
+    width: 284.8px;
+    /* figure out how to get the width automatically sized without hard coding it */
+   
+
+}
+
+.form-sub-btn {
+    background-color: rgb(13, 139, 217);
+    color: aliceblue;
+    height: 35px;
+}
+
+hr.solid {
+    border-top: 1px solid black;
+    width: 284.8px;
+    
+}
+
+.city-search-section {
+    position: absolute;
+    top: 20%;
+    left: 25%;
+    border: 1px solid black;
+    height: 150px;
+    width: 900px;
+}
+
+
+.five-day {
+    display: flex;
+    flex-direction: row;
+    font-size: larger;
+    font-weight: bolder;
+    position: absolute;
+    top: 58%;
+    left: 25%;
+    width: 800px;
+    justify-content: space-between;
+}
+
+.date {
+    display: flex;
+    align-content: space-evenly;
+    top: 80%;
+    width: 140px;
+    height: 200px;
+}
+
+#pos-five-day-text {
+    position: absolute;
+    top: 48%;
+    left: 25%;
 }
