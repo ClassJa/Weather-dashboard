@@ -88,6 +88,10 @@ function storeCityInput() {
     console.log(typeof(searchedCity))
 }
 
+// Dynamically insert data into the divs that represent the 5-day weather forecast based on entered city 
+function fiveDayForecast() {
+    
+}
 
 // function NewSearchedCity(e) {
 //     e.preventDefault;
