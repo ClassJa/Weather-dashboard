@@ -3,7 +3,7 @@ body {
     height: 500px;
 }
 
-header {
+header h1 {
     background-color: rgb(60, 60, 156);
     color: white;
     position: absolute;
@@ -38,6 +38,10 @@ form {
     top: 145px;
     height: 30px;
     width: 284.8px;
+    background-color: rgb(152, 156, 155);
+    color: rgb(9, 9, 9);
+    font-size: medium;
+    font-weight: bold;
     /* figure out how to get the width automatically sized without hard coding it */
    
 
@@ -62,6 +66,7 @@ hr.solid {
     border: 1px solid black;
     height: 150px;
     width: 900px;
+    color: black;
 }
 
 
@@ -83,6 +88,8 @@ hr.solid {
     top: 80%;
     width: 140px;
     height: 200px;
+    background-color: rgb(56, 56, 63);
+    color: aliceblue;
 }
 
 #pos-five-day-text {
@@ -90,3 +97,11 @@ hr.solid {
     top: 48%;
     left: 25%;
 }
+
+
+#searched-city-info {
+    color: black ;
+    font-size: medium;
+}
+
+/* figure out how to get the header in the searched-city-info box to be styled in isolation  */
