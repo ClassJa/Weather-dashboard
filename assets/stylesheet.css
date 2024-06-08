@@ -1,0 +1,23 @@
+
+
+header {
+    background-color: rgb(60, 60, 156);
+    color: white;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    margin: 0px;
+    left: 0px;
+    display: flex;
+    justify-content: center;
+}
+
+aside {
+    display: flex;
+    position: relative;
+    top: 80px;
+    flex-direction: column;
+    width: 245px;
+    /* justify-content: space-evenly; */
+
+}
