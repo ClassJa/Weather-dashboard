@@ -37,14 +37,18 @@ const baseUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude
 
 // function will create a new div for a recently searched city 
 
-function NewSearchedCity(searchedCity) {
+function NewSearchedCity(searchedCity, event) {
+    event.preventDefault
     const newRecentSearch = document.createElement("div")
 
-    newRecentSearch.textContent = searchedCity.value
+    newRecentSearch.innerHTML = searchedCity.value
+    // newRecentSearch.createElement('<h2>')
+    // newRecentSearch.textContent = searchedCity.value
     
     document.appendChild(newRecentSearch)
     
-    console.log(newRecentSearch)
+    console.log(newRecentSearch.value)
+    console.log(newRecentSearch.textContent)
 }
 
-submitBtn.addEventListener("click", NewSearchedCity)
+submitBtn[0].addEventListener("click", NewSearchedCity);
