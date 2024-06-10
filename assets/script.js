@@ -104,8 +104,6 @@ function storeCityInput() {
 }
 
 
-
-
 // Dynamically insert data into the divs that represent the 5-day weather forecast based on entered city 
 userSearchDate = '6/10/2024'
 // change the hard coded date to date of when the user makes the search
