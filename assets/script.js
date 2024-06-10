@@ -78,19 +78,31 @@ submitBtn[0].addEventListener("click", (event) => {
 });
 
 
+// function storeCityInput() {
+//     newSearches = [] || [searchedCity.value]
+//     // newSearches.push(searchedCity.value)
+//     if (localStorage.getItem('inputCity') !== null) {
+//         newSearches.push(searchedCity.value)
+//     } else {
+//         localStorage.setItem('inputCity', newSearches)
+//         // newSearches = [searchedCity.value]
+//     }
+
+//     console.log(typeof(newSearches))
+//     // newSearches = [] || searchedCity.value
+//     // newSearches.push(searchedCity.value)
+//     localStorage.setItem('inputCity', JSON.stringify(newSearches))
+//     console.log(JSON.stringify(searchedCity.value))
+//     console.log(typeof(searchedCity))
+// }
+
+
 function storeCityInput() {
-    newSearches = [] || searchedCity.value
-    if (newSearches.length !== 0) {
-        newSearches.push(searchedCity.value)
-    } else {
-        newSearches = searchedCity.value
-    }
-    console.log(typeof(newSearches))
-    // newSearches = [] || searchedCity.value
-    // newSearches.push(searchedCity.value)
-    localStorage.setItem('inputCity', JSON.stringify(newSearches))
-    console.log(JSON.stringify(searchedCity.value))
-    console.log(typeof(searchedCity))
+    let userInput = document.querySelector('#city-search').value;
+    let newSearches = JSON.parse(localStorage.getItem('inputCity')) || [];
+    newSearches.push(userInput);
+    localStorage.setItem('inputCity', JSON.stringify(newSearches));
+}
 
     // localStorage.setItem('inputCity', JSON.stringify(searchedCity.value)) this line works 
 
@@ -103,7 +115,7 @@ function storeCityInput() {
         // console.log(JSON.stringify(searchedCity[i].value))
         // console.log(typeof(searchedCity))
     // }
-}
+
 
 
 
