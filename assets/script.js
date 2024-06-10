@@ -74,9 +74,12 @@ submitBtn[0].addEventListener("click", (event) => {
     clearTextInput()
     NewSearchedCity()
     storeCityInput()
+    fiveDayForecast()
 });
 
+
 function storeCityInput() {
+    newSearches = []
     for (input of userInput) {
 
     }
@@ -85,15 +88,23 @@ function storeCityInput() {
         // console.log(JSON.stringify(searchedCity[i].value))
         // console.log(typeof(searchedCity))
     // }
-    localStorage.setItem('inputCity', JSON.stringify(searchedCity.value))
+    newSearches.push(searchedCity.value)
+    localStorage.setItem('inputCity', JSON.stringify(newSearches))
     console.log(JSON.stringify(searchedCity.value))
     console.log(typeof(searchedCity))
+
+    // localStorage.setItem('inputCity', JSON.stringify(searchedCity.value)) this line works 
 }
+
 
 // Dynamically insert data into the divs that represent the 5-day weather forecast based on entered city 
 function fiveDayForecast() {
+    newSearches = [] || searchedCity
+    newSearch = localStorage.setItem('newSearch', newSearches)
+    console.log(newSearches)
 
 }
+
 
 
 function displaySearchInForecastDiv() {
