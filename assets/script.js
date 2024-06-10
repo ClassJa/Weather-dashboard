@@ -74,13 +74,20 @@ submitBtn[0].addEventListener("click", (event) => {
     clearTextInput()
     NewSearchedCity()
     storeCityInput()
-    fiveDayForecast()
+    // fiveDayForecast()
 });
 
 
 function storeCityInput() {
     newSearches = [] || searchedCity.value
-    newSearches.push(searchedCity.value)
+    if (newSearches.length !== 0) {
+        newSearches.push(searchedCity.value)
+    } else {
+        newSearches = searchedCity.value
+    }
+    console.log(typeof(newSearches))
+    // newSearches = [] || searchedCity.value
+    // newSearches.push(searchedCity.value)
     localStorage.setItem('inputCity', JSON.stringify(newSearches))
     console.log(JSON.stringify(searchedCity.value))
     console.log(typeof(searchedCity))
@@ -97,7 +104,7 @@ function storeCityInput() {
         // console.log(typeof(searchedCity))
     // }
 }
-newSearches.push(searchedCity.value)
+
 
 
 // Dynamically insert data into the divs that represent the 5-day weather forecast based on entered city 
