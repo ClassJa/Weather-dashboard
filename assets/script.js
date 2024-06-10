@@ -5,6 +5,7 @@ const searchedCity = document.getElementById('city-search')
 const submitBtn = document.body.getElementsByClassName('form-sub-btn')
 // const formSection = document.body.getElementsByClassName('form-section')
 const underForm = document.querySelector('.form-section')
+const currForecastDiv = document.getElementsByClassName('searched-city-section')
 
 // console.log(searchedCity)
 
@@ -57,6 +58,7 @@ function NewSearchedCity() {
 
     userInput.push(searchedCity.value)
     console.log(userInput)
+
     
     }
     
@@ -90,7 +92,16 @@ function storeCityInput() {
 
 // Dynamically insert data into the divs that represent the 5-day weather forecast based on entered city 
 function fiveDayForecast() {
-    
+
+}
+
+
+function displaySearchInForecastDiv() {
+    const forecastHeader = currForecastDiv.createElement('header')
+
+    forecastHeader.textContent = searchedCity.value
+    currForecastDiv.appendChild(forecastHeader)
+    // figure out how to get this text to show on screen 
 }
 
 // function NewSearchedCity(e) {
