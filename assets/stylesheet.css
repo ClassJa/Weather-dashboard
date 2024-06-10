@@ -110,17 +110,6 @@ hr.solid {
     color: aliceblue;
 }
 
-#pos-five-day-text {
-    position: absolute;
-    top: 48%;
-    left: 25%;
-}
-
-#city-search {
-    margin-bottom: 10px;
-    padding: 7px;
-}
-
 .form-section {
     display: flex;
     flex-direction: column;
@@ -135,6 +124,25 @@ hr.solid {
     color: black ;
     font-size: medium;
 }
+
+.center {
+    /* figure out how to center the date */
+}
+
+
+
+#pos-five-day-text {
+    position: absolute;
+    top: 48%;
+    left: 25%;
+}
+
+#city-search {
+    margin-bottom: 10px;
+    padding: 7px;
+}
+
+
 
 @media (max-width: 400px){
     .date {

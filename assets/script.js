@@ -74,7 +74,7 @@ submitBtn[0].addEventListener("click", (event) => {
     clearTextInput()
     NewSearchedCity()
     storeCityInput()
-    // fiveDayForecast()
+    fiveDayForecast()
 });
 
 // Stores user inputs of cities into local storage
@@ -88,10 +88,27 @@ function storeCityInput() {
 
 
 // Dynamically insert data into the divs that represent the 5-day weather forecast based on entered city 
+userSearchDate = '6/10/2024'
 function fiveDayForecast() {
-    newSearches = [] || searchedCity
-    newSearch = localStorage.setItem('newSearch', newSearches)
-    console.log(newSearches)
+    const date = new Date();
+    const todaysDate = `${date.getMonth()}/${date.getDay()}/${date.getFullYear()}`
+    console.log(todaysDate)
+    let attachedNum;
+    for (let i = 1; i < 6; i ++){
+        attachedNum = i
+        const dateField = document.getElementById(`date${attachedNum}`) 
+        const fHeader = document.createElement('header')
+        fHeader.setAttribute('class', 'date', 'center')
+        fHeader.textContent = todaysDate
+        dateField.appendChild(fHeader)
+        // figure out how to get data from api and place it below
+        // forecastHeader.textContent = todaysDate
+
+    }
+    
+    // newSearches = [] || searchedCity
+    // newSearch = localStorage.setItem('newSearch', newSearches)
+    // console.log(newSearches)
 
 }
 
