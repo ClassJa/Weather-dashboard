@@ -77,23 +77,24 @@ submitBtn[0].addEventListener("click", (event) => {
     fiveDayForecast()
 });
 
-
+newSearches = []
 function storeCityInput() {
-    newSearches = []
-    for (input of userInput) {
-
-    }
-    // for (input of searchedCity){
-        // localStorage.setItem('inputCity', JSON.stringify(searchedCity[i].value))
-        // console.log(JSON.stringify(searchedCity[i].value))
-        // console.log(typeof(searchedCity))
-    // }
     newSearches.push(searchedCity.value)
     localStorage.setItem('inputCity', JSON.stringify(newSearches))
     console.log(JSON.stringify(searchedCity.value))
     console.log(typeof(searchedCity))
 
     // localStorage.setItem('inputCity', JSON.stringify(searchedCity.value)) this line works 
+
+
+     // for (input of userInput) {
+
+    // }
+    // for (input of searchedCity){
+        // localStorage.setItem('inputCity', JSON.stringify(searchedCity[i].value))
+        // console.log(JSON.stringify(searchedCity[i].value))
+        // console.log(typeof(searchedCity))
+    // }
 }
 
 
