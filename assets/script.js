@@ -7,6 +7,9 @@ const submitBtn = document.body.getElementsByClassName('form-sub-btn')
 const underForm = document.querySelector('.form-section')
 const currForecastDiv = document.getElementsByClassName('searched-city-section')
 
+const city = searchedCity.value
+console.log(city)
+
 // console.log(searchedCity)
 
 // create localstorage set up for recent searches so they populate in the aside section of the webpage 
@@ -19,6 +22,7 @@ const currForecastDiv = document.getElementsByClassName('searched-city-section')
 
 const baseUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}`
 
+
 // [47.6062, -122.3321]
 
 // if (baseUrl.ok) {
@@ -27,6 +31,14 @@ const baseUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude
     .then((response) => {console.log(response)})
     .catch(`Url is not working, response: ${baseUrl.status}`)
 // }
+
+
+const cityApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
+fetch(cityApi)
+    .then((response) => response)
+    .then((response) => {console.log(response)})
+    .catch(`Url is not working, response: ${cityApi.status}`)
+
 
 // .then(data) {
 //     console.log(JSON.parse(data))
@@ -61,6 +73,12 @@ function NewSearchedCity() {
 
     
     }
+
+    function init() {
+        // renders recently searched buttons globally
+        console.log("init")
+    }
+    init()
     
 // submitBtn[0].addEventListener("click", NewSearchedCity);
 // newRecentSearchBtn.innerHTML = ''
@@ -87,16 +105,23 @@ function storeCityInput() {
 
 
 
+
 // Dynamically insert data into the divs that represent the 5-day weather forecast based on entered city 
 userSearchDate = '6/10/2024'
+// change the hard coded date to date of when the user makes the search
 function fiveDayForecast() {
     const date = new Date();
     const todaysDate = `${date.getMonth()}/${date.getDay()}/${date.getFullYear()}`
     console.log(todaysDate)
     let attachedNum;
     for (let i = 1; i < 6; i ++){
-        attachedNum = i
+        attachedNum = JSON.stringify(i)
+        console.log(attachedNum)
         const dateField = document.getElementById(`date${attachedNum}`) 
+        console.log(typeof(todaysDate))
+        // todaysDate.split(date.getDay()) = attachedNum
+        // todaysDate.indexOf(date.getDay()) = attachedNum
+        console.log(dateField)
         const fHeader = document.createElement('header')
         fHeader.setAttribute('class', 'date', 'center')
         fHeader.textContent = todaysDate
@@ -105,6 +130,7 @@ function fiveDayForecast() {
         // forecastHeader.textContent = todaysDate
 
     }
+    // dateField.appendChild(fHeader)
     
     // newSearches = [] || searchedCity
     // newSearch = localStorage.setItem('newSearch', newSearches)
