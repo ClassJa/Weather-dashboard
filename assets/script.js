@@ -6,52 +6,56 @@ const submitBtn = document.body.getElementsByClassName('form-sub-btn')
 // const formSection = document.body.getElementsByClassName('form-section')
 const underForm = document.querySelector('.form-section')
 const currForecastDiv = document.getElementsByClassName('searched-city-section')
+// const city = searchedCity.value
 
-const city = searchedCity.value
-console.log(city)
-
-// console.log(searchedCity)
-
-// create localstorage set up for recent searches so they populate in the aside section of the webpage 
-// localStorage.getItem('searched-city')
-// localStorage.setItem('searched-city', searchedCity.value)
-
-// console.log(searchedCity.value)
+const currWeather = document.querySelector(".city-search-section")
 
 
 
-const baseUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}`
 
+function fetchForecast(lat, long){
 
-// [47.6062, -122.3321]
+const baseUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=${apiKey}`
+
 
 // if (baseUrl.ok) {
     fetch(baseUrl)
-    .then((response) => response)
-    .then((response) => {console.log(response)})
+    .then((response) => response.json())
+    .then((data) => {console.log(data, "Found it!"); console.log(data.list[0].weather); console.log(data.list[0].dt_txt)
+})
     .catch(`Url is not working, response: ${baseUrl.status}`)
+
+        const weatherHeader = document.createElement('header')
+        // currWeather.createElement('header')
+        weatherHeader.setAttribute('class', 'date')
+        weatherHeader.textContent = data.list[0].dt_txt
+        currWeather.appendChild(weatherHeader)
+        
+
+
+}
+
+
+
+// function handleSearch(e){
+//     e.preventDefault()
+//     const city = searchedCity.value
+
 // }
 
 
-const cityApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
-fetch(cityApi)
-    .then((response) => response)
-    .then((response) => {console.log(response)})
-    .catch(`Url is not working, response: ${cityApi.status}`)
-
-
-// .then(data) {
-//     console.log(JSON.parse(data))
-// }
-
-//  Handle the response correctly by using the .then() and .catch() methods.
-// 2. Parse the JSON response.
-// 3. Improve error handling.
-
+function setLatandLong(cityName){
+    const cityApi = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${apiKey}`
+    fetch(cityApi)
+        .then((response) => response.json())
+        .then((data) => {fetchForecast(data[0].lat, data[0].lon)})
+        // replace console.log with data.syntax
+        .catch(`Url is not working, response: ${cityApi.status}`)
+        // const city = searchedCity.value
+    }
 
 // Renders to the aside section recently searched cities by creating a button element for each
-
-// figure out how to have all of teh cities entered saved to an array so it can be stored in localStorage and rendered to screen in recently viewed section 
+// figure out how to have all of the cities entered saved to an array so it can be stored in localStorage and rendered to screen in recently viewed section 
 // const cityInputs = JSON.parse('inputCity')
 const userInput = [] || cityInputs
 function NewSearchedCity() {
@@ -63,6 +67,7 @@ function NewSearchedCity() {
     // searchedCity.textContent = " "
     const newRecentSearchBtn = document.createElement('button')
     newRecentSearchBtn.textContent = searchedCity.value
+    console.log(searchedCity.value)
     newRecentSearchBtn.setAttribute('class', 'recent-search1')
     
     // don't create a new div, target the precendent 
@@ -76,7 +81,9 @@ function NewSearchedCity() {
 
     function init() {
         // renders recently searched buttons globally
-        console.log("init")
+        NewSearchedCity()
+        storeCityInput()
+        // console.log("init")
     }
     init()
     
@@ -86,6 +93,7 @@ function NewSearchedCity() {
 function clearTextInput() {
     // searchedCity.value = " "
 }
+// const city = searchedCity.value
 
 submitBtn[0].addEventListener("click", (event) => {
     event.preventDefault()
@@ -93,6 +101,10 @@ submitBtn[0].addEventListener("click", (event) => {
     NewSearchedCity()
     storeCityInput()
     fiveDayForecast()
+    // fetchForecast()
+
+    setLatandLong(searchedCity.value)
+    // console.log(searchedCity.value + 'abc!!!!')
 });
 
 // Stores user inputs of cities into local storage
@@ -121,7 +133,7 @@ function fiveDayForecast() {
         // todaysDate.indexOf(date.getDay()) = attachedNum
         console.log(dateField)
         const fHeader = document.createElement('header')
-        fHeader.setAttribute('class', 'date', 'center')
+        fHeader.setAttribute('class', 'date center')
         fHeader.textContent = todaysDate
         dateField.appendChild(fHeader)
         // figure out how to get data from api and place it below
