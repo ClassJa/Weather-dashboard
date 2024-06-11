@@ -11,7 +11,7 @@ const currForecastDiv = document.getElementsByClassName('searched-city-section')
 const currWeather = document.querySelector(".city-search-section")
 
 
-
+// pick up here
 
 function fetchForecast(lat, long){
 
