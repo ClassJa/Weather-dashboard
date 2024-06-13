@@ -28,7 +28,7 @@ const baseUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon
         const weatherHeader = document.createElement('header')
         // currWeather.createElement('header')
         weatherHeader.setAttribute('class', 'date')
-        weatherHeader.textContent = data.list[0].dt_txt
+        weatherHeader.textContent = JSON.stringify(data.list[0].dt_txt)
         currWeather.appendChild(weatherHeader)
         
 
