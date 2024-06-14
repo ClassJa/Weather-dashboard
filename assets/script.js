@@ -36,14 +36,6 @@ const baseUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon
 }
 
 
-
-// function handleSearch(e){
-//     e.preventDefault()
-//     const city = searchedCity.value
-
-// }
-
-
 function setLatandLong(cityName){
     const cityApi = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${apiKey}`
     fetch(cityApi)
@@ -59,12 +51,7 @@ function setLatandLong(cityName){
 // const cityInputs = JSON.parse('inputCity')
 const userInput = [] || cityInputs
 function NewSearchedCity() {
-    // e.preventDefault();
-    // clearTextInput()
-    // newRecentSearchBtn.textContent = ''
-    // create a for-loop that starts off by clearing the form field input 
-    // seek guidance 
-    // searchedCity.textContent = " "
+
     const newRecentSearchBtn = document.createElement('button')
     newRecentSearchBtn.textContent = searchedCity.value
     console.log(searchedCity.value)
@@ -140,12 +127,7 @@ function fiveDayForecast() {
         // forecastHeader.textContent = todaysDate
 
     }
-    // dateField.appendChild(fHeader)
-    
-    // newSearches = [] || searchedCity
-    // newSearch = localStorage.setItem('newSearch', newSearches)
-    // console.log(newSearches)
-
+ 
 }
 
 
@@ -158,22 +140,49 @@ function displaySearchInForecastDiv() {
     // figure out how to get this text to show on screen 
 }
 
-// function NewSearchedCity(e) {
-//     e.preventDefault;
-    // const newRecentSearch = document.createElement("div")
 
-    // newRecentSearch.innerHTML = searchedCity.value
-    // newRecentSearch.createElement('<h2>')
-    // newRecentSearch.textContent = searchedCity.value;
+
+
+// uncomment and create below
+
+
+fetch(apiUrl)
+    .then(function (res) {
+      return res.json();
+    })
+    .then(function (data) {
+      renderItems(city, data);
+    })
+    .catch(function (err) {
+      console.error(err);
+    });
+
+
+    function renderForecast(list) {
+        
+
+    }
+
+
+    function renderItems(city, data) {
+        renderCurrentWeather(city, data.list[0], data.city.timezone);
+        renderForecast(data.list);
+      }
+
+
+    function renderCurrentWeather(city, weather) {
+    const tempF = weather.main.temp;
+    const tempEl = document.createElement('p');
+    tempEl.setAttribute('class', 'card-text');
+    tempEl.textContent = `Temp: ${tempF}°F`;
     
-    // newRecentSearch.appendChild(newRecentSearch)
+    const cardBody = document.createElement('div');
+    cardBody.append(tempEl);
+    }
 
 
-    // const container = document.getElementsByClassName("form-section");
-    // container.appendChild(newRecentSearch);
-    
-    // console.log(newRecentSearch.value)
-    // console.log(newRecentSearch.textContent)
-//     console.log("Check here")
-// }
-//     submitBtn[0].addEventListener("click", NewSearchedCity);
+// renderCurrentWeather and renderForecast  have the data you need. 
+// the renderCurrentWeather will get the city value as well as the value of the first array item in the data list 
+// (e.g. data.list[0]) and the renderForecast  function will get the whole list of forecast (data.list)
+// then you can create your elements, set attributes for your elements and set the textContent properties of 
+// those elementrs to represent the data you want to display in a particular element (e.g )
