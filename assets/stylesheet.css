@@ -82,7 +82,7 @@ hr.solid {
     top: 10%;
     left: 25%;
     border: 1px solid black;
-    height: auto;
+    height: 250px;
     width: 70%;
     color: black;
 }
