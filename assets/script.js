@@ -18,29 +18,54 @@ function fetchForecast(lat, long){
 const baseUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=${apiKey}`
 
 
-// if (baseUrl.ok) {
     fetch(baseUrl)
     .then((response) => response.json())
-    .then((data) => {console.log(data, "Found it!"); console.log(data.list[0].weather); console.log(data.list[0].dt_txt)
+    // save it to local storage and display
+    .then(data => {
+        console.log(data, "Found it!");
+        console.log(data.list[0].weather);
+        // const date = data.list[0].dt_txt}, 
+        console.log(data.list[0].weather),
+        console.log(data.list[0].dt_txt)
+        const containers = document.querySelectorAll('.date')
+        
+        for (let i = 0; i < containers.length; i++){
+            containers[i].setAttribute('class', 'date')
+            containers[i].textContent = data.list[i+8].dt_txt
+            // containers[0].textContent = (data.list[0].dt_txt)
+            // containers[1].textContent = (data.list[1].dt_txt)
+            // containers[2].textContent = (data.list[2].dt_txt)
+            // containers[3].textContent = (data.list[3].dt_txt)
+            // containers[4].textContent = ((data.list[4].dt_txt).split('')).pop()
+            
+        }
+    
 })
-    .catch(`Url is not working, response: ${baseUrl.status}`)
+    .catch(`Url is not working, response: ${baseUrl.status}`) 
 
         const weatherHeader = document.createElement('header')
         // currWeather.createElement('header')
         weatherHeader.setAttribute('class', 'date')
         weatherHeader.textContent = JSON.stringify(data.list[0].dt_txt)
         currWeather.appendChild(weatherHeader)
+
+        // function getDate(data) {
+        //     console.log(data + "hjkcjdnxbfbecd")
         
-
-
+        // }
+        // getDate(data)
+        // return date
 }
+
+
 
 
 function setLatandLong(cityName){
     const cityApi = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${apiKey}`
     fetch(cityApi)
         .then((response) => response.json())
-        .then((data) => {fetchForecast(data[0].lat, data[0].lon)})
+        .then(data => {
+            fetchForecast(data[0].lat, data[0].lon)})
         // replace console.log with data.syntax
         .catch(`Url is not working, response: ${cityApi.status}`)
         // const city = searchedCity.value
@@ -88,6 +113,7 @@ submitBtn[0].addEventListener("click", (event) => {
     NewSearchedCity()
     storeCityInput()
     fiveDayForecast()
+    // getDate()
     // fetchForecast()
 
     setLatandLong(searchedCity.value)
@@ -105,8 +131,10 @@ function storeCityInput() {
 
 // Dynamically insert data into the divs that represent the 5-day weather forecast based on entered city 
 userSearchDate = '6/10/2024'
+// use response.(date)
 // change the hard coded date to date of when the user makes the search
-function fiveDayForecast() {
+function fiveDayForecast(response) {
+    console.log(response)
     const date = new Date();
     const todaysDate = `${date.getMonth()}/${date.getDay()}/${date.getFullYear()}`
     console.log(todaysDate)
@@ -146,39 +174,39 @@ function displaySearchInForecastDiv() {
 // uncomment and create below
 
 
-fetch(apiUrl)
-    .then(function (res) {
-      return res.json();
-    })
-    .then(function (data) {
-      renderItems(city, data);
-    })
-    .catch(function (err) {
-      console.error(err);
-    });
+// fetch(apiUrl)
+//     .then(function (res) {
+//       return res.json();
+//     })
+//     .then(function (data) {
+//       renderItems(city, data);
+//     })
+//     .catch(function (err) {
+//       console.error(err);
+//     });
 
 
-    function renderForecast(list) {
-        
-
-    }
+//     function renderForecast(list) {
 
 
-    function renderItems(city, data) {
-        renderCurrentWeather(city, data.list[0], data.city.timezone);
-        renderForecast(data.list);
-      }
+//     }
 
 
-    function renderCurrentWeather(city, weather) {
-    const tempF = weather.main.temp;
-    const tempEl = document.createElement('p');
-    tempEl.setAttribute('class', 'card-text');
-    tempEl.textContent = `Temp: ${tempF}°F`;
+//     function renderItems(city, data) {
+//         renderCurrentWeather(city, data.list[0], data.city.timezone);
+//         renderForecast(data.list);
+//       }
+
+
+//     function renderCurrentWeather(city, weather) {
+//     const tempF = weather.main.temp;
+//     const tempEl = document.createElement('p');
+//     tempEl.setAttribute('class', 'card-text');
+//     tempEl.textContent = `Temp: ${tempF}°F`;
     
-    const cardBody = document.createElement('div');
-    cardBody.append(tempEl);
-    }
+//     const cardBody = document.createElement('div');
+//     cardBody.append(tempEl);
+//     }
 
 
 // renderCurrentWeather and renderForecast  have the data you need. 
