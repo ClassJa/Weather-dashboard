@@ -7,7 +7,7 @@ This project utilizes the programming languages of HTML, CSS, and javascript to 
 ## Usage
 
 https://classja.github.io/weather-dashboard/
-![alt text](image.png)
+![alt text](image-1.png)
 
 ## Credits 
 Sought out assistance from the websites and resources listed below: 
