@@ -143,14 +143,14 @@ function NewSearchedCity() {
     underForm.appendChild(newRecentSearchBtn)
 
     userInput.push(searchedCity.value)
-    console.log(userInput)
+    // console.log(userInput)
 
     
     }
 
     function init() {
         // renders recently searched buttons globally
-        NewSearchedCity()
+        // NewSearchedCity()
         storeCityInput()
         // console.log("init")
     }
@@ -165,8 +165,6 @@ function clearTextInput() {
 // const city = searchedCity.value
 
 
-
-
 submitBtn.addEventListener("click", (event) => {
     event.preventDefault();
     clearTextInput();
@@ -176,20 +174,7 @@ submitBtn.addEventListener("click", (event) => {
     setLatandLong(searchedCity.value);
 });
 
-// submitBtn[0].addEventListener("click", (event) => {
-//     event.preventDefault()
-//     clearTextInput()
-//     NewSearchedCity()
-//     storeCityInput()
-//     fiveDayForecast()
-//     // getDate()
-//     // fetchForecast()
 
-//     setLatandLong(searchedCity.value)
-//     // console.log(searchedCity.value + 'abc!!!!')
-// });
-
-// Stores user inputs of cities into local storage
 function storeCityInput() {
     let userInput = document.querySelector('#city-search').value;
     let newSearches = JSON.parse(localStorage.getItem('inputCity')) || [];
@@ -197,9 +182,9 @@ function storeCityInput() {
     localStorage.setItem('inputCity', JSON.stringify(newSearches));
 }
 
-
+// no longer used 
 // Dynamically insert data into the divs that represent the 5-day weather forecast based on entered city 
-userSearchDate = '6/10/2024'
+// userSearchDate = '6/10/2024'
 // use response.(date)
 // change the hard coded date to date of when the user makes the search
 function fiveDayForecast(response) {
@@ -213,15 +198,13 @@ function fiveDayForecast(response) {
         console.log(attachedNum)
         const dateField = document.getElementById(`date${attachedNum}`) 
         console.log(typeof(todaysDate))
-        // todaysDate.split(date.getDay()) = attachedNum
-        // todaysDate.indexOf(date.getDay()) = attachedNum
+       
         console.log(dateField)
         const fHeader = document.createElement('header')
         fHeader.setAttribute('class', 'date center')
         fHeader.textContent = todaysDate
         dateField.appendChild(fHeader)
-        // figure out how to get data from api and place it below
-        // forecastHeader.textContent = todaysDate
+     
 
     }
  
@@ -231,55 +214,8 @@ function fiveDayForecast(response) {
 
 function displaySearchInForecastDiv() {
     const forecastHeader = currForecastDiv.createElement('header')
-
     forecastHeader.textContent = searchedCity.value
     currForecastDiv.appendChild(forecastHeader)
-    // figure out how to get this text to show on screen 
 }
 
 
-
-
-// uncomment and create below
-
-
-// fetch(apiUrl)
-//     .then(function (res) {
-//       return res.json();
-//     })
-//     .then(function (data) {
-//       renderItems(city, data);
-//     })
-//     .catch(function (err) {
-//       console.error(err);
-//     });
-
-
-//     function renderForecast(list) {
-
-
-//     }
-
-
-//     function renderItems(city, data) {
-//         renderCurrentWeather(city, data.list[0], data.city.timezone);
-//         renderForecast(data.list);
-//       }
-
-
-//     function renderCurrentWeather(city, weather) {
-//     const tempF = weather.main.temp;
-//     const tempEl = document.createElement('p');
-//     tempEl.setAttribute('class', 'card-text');
-//     tempEl.textContent = `Temp: ${tempF}°F`;
-    
-//     const cardBody = document.createElement('div');
-//     cardBody.append(tempEl);
-//     }
-
-
-// renderCurrentWeather and renderForecast  have the data you need. 
-// the renderCurrentWeather will get the city value as well as the value of the first array item in the data list 
-// (e.g. data.list[0]) and the renderForecast  function will get the whole list of forecast (data.list)
-// then you can create your elements, set attributes for your elements and set the textContent properties of 
-// those elementrs to represent the data you want to display in a particular element (e.g )
