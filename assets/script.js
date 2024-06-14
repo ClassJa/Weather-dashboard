@@ -32,12 +32,10 @@ const baseUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon
         for (let i = 0; i < containers.length; i++){
             containers[i].setAttribute('class', 'date')
             containers[i].textContent = data.list[i+8].dt_txt
-            // containers[0].textContent = (data.list[0].dt_txt)
-            // containers[1].textContent = (data.list[1].dt_txt)
-            // containers[2].textContent = (data.list[2].dt_txt)
-            // containers[3].textContent = (data.list[3].dt_txt)
-            // containers[4].textContent = ((data.list[4].dt_txt).split('')).pop()
-            
+            const cardSection1 = document.createElement('h3')
+            cardSection1.textContent = data.list[i].weather[i].main
+            cardSection1.setAttribute('class', 'weather-display')
+            containers[i].appendChild(cardSection1)
         }
     
 })

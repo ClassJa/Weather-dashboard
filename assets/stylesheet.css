@@ -101,7 +101,7 @@ hr.solid {
 }
 
 .date {
-    display: flex;
+    display: block;
     align-content: space-evenly;
     top: 80%;
     width: 165px;
@@ -130,6 +130,14 @@ hr.solid {
 }
 
 
+.weather-display {
+    color: white;
+    position: relative;
+    left: 30%;
+    /* justify-content: center; */
+    /* display: block; */
+
+}
 
 #pos-five-day-text {
     position: absolute;
