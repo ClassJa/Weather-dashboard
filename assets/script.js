@@ -32,18 +32,30 @@ const baseUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon
         console.log(data.list[0].dt_txt)
         const containers = document.querySelectorAll('.date')
         
-        const currWeatherSection = document.createElement('h2')
+        const currWeatherSection = document.createElement('h3')
         const cityNameT = document.createElement('h1')
         const dateT = document.createElement('h3')
+        const temp = document.createElement('h3')
+        const humidity = document.createElement('h3')
+        const windSpeed = document.createElement('h3')
+        windSpeed.textContent = `Wind Speed: ${data.list[0].wind.speed}`
+        windSpeed.setAttribute('class', 'readable')
+        humidity.textContent = `Humidity: ${data.list[0].main.humidity}`
+        humidity.setAttribute('class', 'readable')
+        temp.textContent = `Temp: ${data.list[0].main.temp}`
+        temp.setAttribute('class', 'readable')
         dateT.textContent = data.list[0].dt_txt
-        dateT.setAttribute('class', 'readable')
+        dateT.setAttribute('class', 'readable position')
         cityNameT.textContent = data.city.name
-        cityNameT.setAttribute('class', 'readable')
+        cityNameT.setAttribute('class', 'readable city-spacing')
         currWeatherSection.textContent = data.list[0].weather[0].main
-        currWeatherSection.setAttribute('class', 'readable')
+        currWeatherSection.setAttribute('class', 'readable position')
         currWeather.appendChild(cityNameT)
-        currWeather.appendChild(dateT)
         currWeather.appendChild(currWeatherSection)
+        currWeather.appendChild(dateT)
+        currWeather.appendChild(temp)
+        currWeather.appendChild(humidity)
+        currWeather.appendChild(windSpeed)
        
         
 

@@ -79,10 +79,10 @@ hr.solid {
 
 .city-search-section {
     position: absolute;
-    top: 20%;
+    top: 10%;
     left: 25%;
     border: 1px solid black;
-    height: 175px;
+    height: auto;
     width: 70%;
     color: black;
 }
@@ -92,7 +92,21 @@ hr.solid {
     color: black;
 }
 
+.city-spacing {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 
+}
+
+.position.readable{
+    /* width: auto; */
+    position: relative;
+    left: 35%;
+    display: inline-flex;
+    margin-right: 150px;
+    /* position: relative; */
+}
 .five-day {
     display: flex;
     flex-direction: row;
