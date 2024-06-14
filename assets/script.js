@@ -59,7 +59,7 @@ const baseUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon
        
         
 
-        for (let i = 0; i < containers.length; i++){
+        for (let i = 1; i < containers.length; i++){
             containers[i].setAttribute('class', 'date')
             containers[i].textContent = data.list[i*4].dt_txt
             const cardSection1 = document.createElement('h3')
