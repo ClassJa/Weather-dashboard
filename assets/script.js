@@ -73,16 +73,17 @@ const baseUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon
             
         }
 
-        for (let i=0; i < containers.length; i++){
-            // let rain = U+26C6;
-            let sun = U+2609;
-            if ((data.list[i].weather[i].main) === rain ) {
-                cardSection1.textContent += rain
+
+        // unicode to add icons based on weather
+        for (let i = 0; i < containers.length; i++){
+            let rain = 'U+26C6';
+            let sun = 'U+2609';
+            if ((data.list[i].weather[i].main) === rain) {
+                cardSection1.textContent += parseInt(rain)
             } else {
-                cardSection1.textContent += sun
+                cardSection1.textContent += parseInt(sun)
             }
         }
-    
 })
     .catch(`Url is not working, response: ${baseUrl.status}`) 
 
