@@ -77,6 +77,12 @@ hr.solid {
     
 }
 
+.move-up {
+    position: absolute;
+    top: 50px;
+    
+}
+
 .city-search-section {
     position: absolute;
     top: 10%;
