@@ -33,13 +33,23 @@ const baseUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon
         const containers = document.querySelectorAll('.date')
         
         const currWeatherSection = document.createElement('h2')
+        const cityNameT = document.createElement('h1')
+        const dateT = document.createElement('h3')
+        dateT.textContent = data.list[0].dt_txt
+        dateT.setAttribute('class', 'readable')
+        cityNameT.textContent = data.city.name
+        cityNameT.setAttribute('class', 'readable')
         currWeatherSection.textContent = data.list[0].weather[0].main
         currWeatherSection.setAttribute('class', 'readable')
+        currWeather.appendChild(cityNameT)
+        currWeather.appendChild(dateT)
         currWeather.appendChild(currWeatherSection)
+       
+        
 
-        for (let i = 1; i < containers.length; i++){
+        for (let i = 0; i < containers.length; i++){
             containers[i].setAttribute('class', 'date')
-            containers[i].textContent = data.list[i+8].dt_txt
+            containers[i].textContent = data.list[i*4].dt_txt
             const cardSection1 = document.createElement('h3')
             const cardSection2 = document.createElement('h3')
             cardSection1.textContent = data.list[i].weather[0].main,
