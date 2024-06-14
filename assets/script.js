@@ -9,6 +9,8 @@ const underForm = document.querySelector('.form-section')
 const currForecastDiv = document.getElementsByClassName('searched-city-section')
 // const city = searchedCity.value
 
+// const mainSection = document.querySelector('.city-search-section')
+
 const currWeather = document.querySelector(".city-search-section")
 
 
@@ -30,13 +32,23 @@ const baseUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon
         console.log(data.list[0].dt_txt)
         const containers = document.querySelectorAll('.date')
         
-        for (let i = 0; i < containers.length; i++){
+        const currWeatherSection = document.createElement('h2')
+        currWeatherSection.textContent = data.list[0].weather[0].main
+        currWeatherSection.setAttribute('class', 'readable')
+        currWeather.appendChild(currWeatherSection)
+
+        for (let i = 1; i < containers.length; i++){
             containers[i].setAttribute('class', 'date')
             containers[i].textContent = data.list[i+8].dt_txt
             const cardSection1 = document.createElement('h3')
-            cardSection1.textContent = data.list[i].weather[0].main
+            const cardSection2 = document.createElement('h3')
+            cardSection1.textContent = data.list[i].weather[0].main,
+            cardSection2.text = data.list[i].wind.speed
             cardSection1.setAttribute('class', 'weather-display')
+            cardSection2.setAttribute('class', 'weather-display')
             containers[i].appendChild(cardSection1)
+            containers[i].appendChild(cardSection2)
+            
         }
 
         for (let i=0; i < containers.length; i++){

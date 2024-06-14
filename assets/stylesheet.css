@@ -87,6 +87,11 @@ hr.solid {
     color: black;
 }
 
+.readable {
+    background-color: aliceblue;
+    color: black;
+}
+
 
 .five-day {
     display: flex;
@@ -134,6 +139,7 @@ hr.solid {
     color: white;
     position: relative;
     left: 30%;
+    display: block;
     /* justify-content: center; */
     /* display: block; */
 
@@ -159,5 +165,7 @@ hr.solid {
    
     
 }
+
+
 
 /* figure out how to get the header in the searched-city-info box to be styled in isolation  */
