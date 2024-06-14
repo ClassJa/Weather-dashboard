@@ -2,7 +2,8 @@ const apiKey = '18e7ae3a1f608e812d465476189f028c'
 const latitude = '47.6062'
 const longitude = '-122.3321'
 const searchedCity = document.getElementById('city-search')
-const submitBtn = document.body.getElementsByClassName('form-sub-btn')
+// const submitBtn = document.body.getElementsByClassName('form-sub-btn')
+const submitBtn = document.querySelector('.form-sub-btn');
 // const formSection = document.body.getElementsByClassName('form-section')
 const underForm = document.querySelector('.form-section')
 const currForecastDiv = document.getElementsByClassName('searched-city-section')
@@ -33,9 +34,19 @@ const baseUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon
             containers[i].setAttribute('class', 'date')
             containers[i].textContent = data.list[i+8].dt_txt
             const cardSection1 = document.createElement('h3')
-            cardSection1.textContent = data.list[i].weather[i].main
+            cardSection1.textContent = data.list[i].weather[0].main
             cardSection1.setAttribute('class', 'weather-display')
             containers[i].appendChild(cardSection1)
+        }
+
+        for (let i=0; i < containers.length; i++){
+            // let rain = U+26C6;
+            let sun = U+2609;
+            if ((data.list[i].weather[i].main) === rain ) {
+                cardSection1.textContent += rain
+            } else {
+                cardSection1.textContent += sun
+            }
         }
     
 })
@@ -105,18 +116,30 @@ function clearTextInput() {
 }
 // const city = searchedCity.value
 
-submitBtn[0].addEventListener("click", (event) => {
-    event.preventDefault()
-    clearTextInput()
-    NewSearchedCity()
-    storeCityInput()
-    fiveDayForecast()
-    // getDate()
-    // fetchForecast()
 
-    setLatandLong(searchedCity.value)
-    // console.log(searchedCity.value + 'abc!!!!')
+
+
+submitBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    clearTextInput();
+    NewSearchedCity();
+    storeCityInput();
+    fiveDayForecast();
+    setLatandLong(searchedCity.value);
 });
+
+// submitBtn[0].addEventListener("click", (event) => {
+//     event.preventDefault()
+//     clearTextInput()
+//     NewSearchedCity()
+//     storeCityInput()
+//     fiveDayForecast()
+//     // getDate()
+//     // fetchForecast()
+
+//     setLatandLong(searchedCity.value)
+//     // console.log(searchedCity.value + 'abc!!!!')
+// });
 
 // Stores user inputs of cities into local storage
 function storeCityInput() {
