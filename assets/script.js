@@ -32,12 +32,17 @@ const baseUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon
         console.log(data.list[0].dt_txt)
         const containers = document.querySelectorAll('.date')
         
+       const urlicon = `https://openweathermap.org/img/w/${data.list[0].weather[0].icon}.img`
         const currWeatherSection = document.createElement('h3')
         const cityNameT = document.createElement('h1')
         const dateT = document.createElement('h3')
         const temp = document.createElement('h3')
         const humidity = document.createElement('h3')
         const windSpeed = document.createElement('h3')
+        const icon = document.createElement('img')
+        // icon.textContent = urlicon
+        icon.setAttribute('href', 'https://openweathermap.org/img/w/${data.list[0].weather[0].icon}.png')
+        // data.list[0].weather[0].icon
         windSpeed.textContent = `Wind Speed: ${data.list[0].wind.speed}`
         windSpeed.setAttribute('class', 'readable')
         humidity.textContent = `Humidity: ${data.list[0].main.humidity}`
@@ -56,6 +61,7 @@ const baseUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon
         currWeather.appendChild(temp)
         currWeather.appendChild(humidity)
         currWeather.appendChild(windSpeed)
+        currWeather.appendChild(icon)
        
         
 
