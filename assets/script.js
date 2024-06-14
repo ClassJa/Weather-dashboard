@@ -45,14 +45,14 @@ const baseUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon
         temp.textContent = `Temp: ${data.list[0].main.temp}`
         temp.setAttribute('class', 'readable')
         dateT.textContent = data.list[0].dt_txt
-        dateT.setAttribute('class', 'readable position')
+        dateT.setAttribute('class', 'readable city-spacing')
         cityNameT.textContent = data.city.name
         cityNameT.setAttribute('class', 'readable city-spacing')
         currWeatherSection.textContent = data.list[0].weather[0].main
         currWeatherSection.setAttribute('class', 'readable position')
         currWeather.appendChild(cityNameT)
-        currWeather.appendChild(currWeatherSection)
         currWeather.appendChild(dateT)
+        // currWeather.appendChild(currWeatherSection)
         currWeather.appendChild(temp)
         currWeather.appendChild(humidity)
         currWeather.appendChild(windSpeed)
@@ -78,7 +78,7 @@ const baseUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon
         for (let i = 0; i < containers.length; i++){
             let rain = 'U+26C6';
             let sun = 'U+2609';
-            if ((data.list[i].weather[i].main) === rain) {
+            if ((data.list[i].weather[i].main) === 'Rain') {
                 cardSection1.textContent += parseInt(rain)
             } else {
                 cardSection1.textContent += parseInt(sun)
